@@ -20,7 +20,7 @@ class MovieGenreFactoryTest {
 
     @BeforeEach
     void setUp() {
-         m =  new MovieGenreFactory().createMovieGenre("3214","345434");
+         m =  new MovieGenreFactory().build("3214","345434"); /*createMovieGenre  */
          m1 = m;
 
 }

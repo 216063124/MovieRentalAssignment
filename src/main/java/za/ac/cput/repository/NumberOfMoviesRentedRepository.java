@@ -3,12 +3,13 @@ package za.ac.cput.repository;
 import za.ac.cput.entity.NumberOfMoviesRented;
 
 import java.util.*;
-
+@Deprecated
 public class NumberOfMoviesRentedRepository implements INumberOfMoviesRented {
         private static NumberOfMoviesRentedRepository repository = null;
         public Set<NumberOfMoviesRented> numberOfMoviesRentedDB = null;
 
-        public NumberOfMoviesRentedRepository() {
+
+    public NumberOfMoviesRentedRepository() {
 
             numberOfMoviesRentedDB = new HashSet<NumberOfMoviesRented>();
         }
@@ -19,6 +20,9 @@ public class NumberOfMoviesRentedRepository implements INumberOfMoviesRented {
             }
             return repository;
         }
+        public Set<NumberOfMoviesRented> getNumberOfMoviesRentedDB() {
+        return numberOfMoviesRentedDB;
+         }
 
         @Override
         public Set<NumberOfMoviesRented> getAll() {
@@ -34,7 +38,7 @@ public class NumberOfMoviesRentedRepository implements INumberOfMoviesRented {
         }
 
         @Override
-        public NumberOfMoviesRented read(String movieID) {
+        public NumberOfMoviesRented read(String userID) {
             for (NumberOfMoviesRented r : numberOfMoviesRentedDB)
                 if (r.getUserID().equals(userID))
                     return r;
@@ -54,7 +58,7 @@ public class NumberOfMoviesRentedRepository implements INumberOfMoviesRented {
 
         @Override
         public boolean delete(String movieID) {
-            NumberOfMoviesRented numberOfMoviesRentedToDelete = read(userID);
+            NumberOfMoviesRented numberOfMoviesRentedToDelete = read(movieID);
             if (numberOfMoviesRentedToDelete == null)
                 return false;
             numberOfMoviesRentedDB.remove(numberOfMoviesRentedToDelete);

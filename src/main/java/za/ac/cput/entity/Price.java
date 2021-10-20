@@ -8,9 +8,17 @@ package za.ac.cput.entity;
     11 June 2021
 */
 
-public class Price {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Price implements Serializable {
     private float amount;
-    private String movieId;
+    @Id private String movieId;
+
+    protected Price(){
+    }
 
     private Price(PriceBuilder PriceBuilder){
         this.amount=PriceBuilder.amount;

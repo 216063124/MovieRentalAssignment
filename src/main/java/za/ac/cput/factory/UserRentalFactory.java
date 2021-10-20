@@ -21,4 +21,5 @@ public class UserRentalFactory {
         return new UserRental.UserRentalBuilder()
                 .setRentalId(id).setUserId(userId).setMovieId(movieId).setRentalDate(rentalDate).setReturnDate(returnDate).setRentedBy(rentedBy).build();
     }
+
 }

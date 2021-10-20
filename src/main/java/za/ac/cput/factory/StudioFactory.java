@@ -12,6 +12,9 @@ public class StudioFactory {
 
     public static Studio build(String studioId, String studioName){
 
+        if(studioId.isEmpty() ||  studioName.isEmpty())
+            return null;
+
         Studio studio = new Studio.Builder()
                 .setStudioId(studioId)
                 .setStudioName(studioName)

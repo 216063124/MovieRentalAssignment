@@ -1,5 +1,9 @@
 package za.ac.cput.factory;
-
+/**
+ * Author: Emilio Castano
+ * Student Number: 219035709
+ *
+ */
 import za.ac.cput.entity.StudioMovie;
 
 import java.util.UUID;

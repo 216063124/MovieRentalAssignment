@@ -8,7 +8,7 @@ package za.ac.cput.repository;
 import za.ac.cput.entity.ContactType;
 
 import java.util.Set;
-
+@Deprecated
 public interface IContactType extends IRepository<ContactType, String> {
     public Set<ContactType> getAll();
 }

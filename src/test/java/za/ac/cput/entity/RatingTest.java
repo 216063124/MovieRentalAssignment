@@ -21,9 +21,9 @@ class RatingTest {
 
     @BeforeEach
     void setUp(){
-        rating1 = RatingFactory.build("12431",8.3);
-        rating2 = RatingFactory.build("53422",9.3);
-        rating3 = RatingFactory.build("60345",7.2);
+        rating1 = RatingFactory.build(8.3);
+        rating2 = RatingFactory.build(9.3);
+        rating3 = RatingFactory.build(7.2);
         rating4 = rating1;
     }
 

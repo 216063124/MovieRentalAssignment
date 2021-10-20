@@ -15,7 +15,7 @@ public class ContactTypeFactory {
         if (name.isEmpty())
             return null;
 
-        int contactTypeId = UUID.randomUUID().hashCode();
+        String contactTypeId = UUID.randomUUID().toString();
 
 
         return new ContactType.contactTypeBuilder()
@@ -23,6 +23,7 @@ public class ContactTypeFactory {
                 .setDescription(description)
                 .setContactTypeId(contactTypeId).build();
     }
+
 
 
 }

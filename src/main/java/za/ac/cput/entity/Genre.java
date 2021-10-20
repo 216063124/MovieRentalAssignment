@@ -1,14 +1,21 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Author: Emilio Castano
  * Student Number: 219035709
  * Program: Genre Structure of builder pattern
  *
  */
+@Entity
 public class Genre {
+    @Id
+    private String genreId;
+    private String genreName, description;
 
-    private String genreId, genreName, description;
+    private Genre(){}
 
     private Genre(genreBuilder genreBuilder){
 
@@ -63,7 +70,7 @@ public class Genre {
     @Override
     public String toString() {
         return "Genre{" +
-                "genreId='" + genreId + '\'' +
+                "genreId='" + genreId +
                 ", genreName='" + genreName + '\'' +
                 ", description='" + description + '\'' +
                 '}';

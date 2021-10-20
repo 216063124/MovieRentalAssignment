@@ -3,7 +3,7 @@ package za.ac.cput.repository;
 import za.ac.cput.entity.MovieRentedOut;
 
 import java.util.*;
-
+@Deprecated
 public class MovieRentedOutRepository implements IMovieRentedOut {
     private static MovieRentedOutRepository repository = null;
     public Set<MovieRentedOut> movieRentedOutDB = null;

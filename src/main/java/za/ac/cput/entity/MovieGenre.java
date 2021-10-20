@@ -1,14 +1,19 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /* MovieGenre.java
         Entity for MovieGenre
         Author: Marchello Carolus 218234457
         Date: 11 June 2021
         */
-
+@Entity
 public class MovieGenre {
 
-    private String genreId, movieId;
+    @Id
+    private String genreId;
+    private String movieId;
 
     public MovieGenre() {
 

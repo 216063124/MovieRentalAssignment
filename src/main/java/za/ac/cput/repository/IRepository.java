@@ -1,5 +1,6 @@
 package za.ac.cput.repository;
 
+
 public interface IRepository<T, ID> {
     public T create(T t);
     public T read(ID id);

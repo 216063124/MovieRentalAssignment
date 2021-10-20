@@ -21,9 +21,9 @@ class StockTest {
 
     @BeforeEach
     void setUp(){
-        stock1 = StockFactory.build("24683",4);
-        stock2 = StockFactory.build("75433",9);
-        stock3 = StockFactory.build("65439",7);
+        stock1 = StockFactory.build(4);
+        stock2 = StockFactory.build(9);
+        stock3 = StockFactory.build(7);
         stock4 = stock1;
     }
 

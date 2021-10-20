@@ -2,6 +2,7 @@ package za.ac.cput.factory;
 import za.ac.cput.entity.NumberOfMoviesRented;
 import java.util.UUID;
 
+@Deprecated
 public class NumberOfMoviesRentedFactory {
     public static NumberOfMoviesRented build(int movieID, String userID, int rentalID, int numMovies){
 

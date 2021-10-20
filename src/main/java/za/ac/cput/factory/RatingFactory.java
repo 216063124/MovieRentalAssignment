@@ -10,11 +10,12 @@ package za.ac.cput.factory;
 
 import za.ac.cput.entity.Rating;
 
-public class RatingFactory {
-    public static Rating build(String movieId, double rating){
+import java.util.UUID;
 
-        if (movieId.isEmpty() )
-            return null;
+public class RatingFactory {
+    public static Rating build(double rating){
+
+        String movieId= UUID.randomUUID().toString();
 
         return new Rating.RatingBuilder().
                 setMovieId(movieId).setRating(rating)

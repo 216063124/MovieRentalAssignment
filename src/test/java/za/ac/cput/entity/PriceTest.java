@@ -20,9 +20,9 @@ class PriceTest {
 
     @BeforeEach
     void setUp(){
-        price1 = PriceFactory.build(50.0f,"");
-        price2 = PriceFactory.build(50.0f,"");
-        price3 = PriceFactory.build(60.00f,"");
+        price1 = PriceFactory.build(50.0f);
+        price2 = PriceFactory.build(50.0f);
+        price3 = PriceFactory.build(60.00f);
         price4 = price1;
     }
 

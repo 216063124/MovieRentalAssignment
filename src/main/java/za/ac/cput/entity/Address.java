@@ -1,14 +1,27 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 /**
  * Author: Muhammad Yaasin Cole
  * Student Number: 218340869
  *
  */
-public class Address {
 
-    private String street , city , country,province, userId;
+@Entity
+public class Address{
+
+    @Id
+    private String userId;
+
+    private String street , city , country,province;
     private int postalCode;
 
+    public Address()
+    {}
     public Address(addressBuilder addressBuilder)
     {
         this.userId = addressBuilder.userId;

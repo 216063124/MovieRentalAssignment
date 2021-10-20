@@ -9,15 +9,15 @@ package za.ac.cput.factory;
 */
 
 import za.ac.cput.entity.Stock;
+import java.util.UUID;
 
 public class StockFactory {
 
-    public static Stock build(String movieId, int quantity){
+    public static Stock build(int quantity){
 
-        if (movieId.isEmpty())
-            return null;
+        String id= UUID.randomUUID().toString();
 
-        return new Stock.StockBuilder().setMovieId(movieId)
+        return new Stock.StockBuilder().setMovieId(id)
                 .setQuantity(quantity).build();
     }
 }

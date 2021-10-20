@@ -1,14 +1,26 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 /* Studio.java
         Entity for studio
         Author: Marchello Carolus 218234457
         Date: 11 June 2021
         */
 
+
+
+@Entity
 public class Studio {
 
-    private String studioId, studioName;
+    @Id
+    private String studioId;
+    private String studioName;
+
+
+    private Studio() {
+
+    }
 
     private Studio(Builder builder) {
         this.studioId = builder.studioId;
@@ -23,6 +35,8 @@ public class Studio {
     public String getStudioName() {
         return studioName;
     }
+
+
 
     public static class Builder{
 
@@ -39,6 +53,7 @@ public class Studio {
 
             return this;
         }
+
 
         public Studio build(){
 

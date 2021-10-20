@@ -11,18 +11,18 @@ package za.ac.cput.factory;
 import za.ac.cput.entity.Movie;
 import java.util.UUID;
 
-
 public class MovieFactory {
 
-    public static Movie build(String title, String releaseDate, String genreId, String directorId){
+    public static Movie build(String title, String releaseDate, String genres, String studio,String mainActors, double price, int stock){
 
-        if (title.isEmpty() || releaseDate.isEmpty() || genreId.isEmpty() || directorId.isEmpty())
+        if (title.isEmpty() || releaseDate.isEmpty() || genres.isEmpty() || studio.isEmpty() || price==0 || mainActors.isEmpty())
             return null;
 
         String id= UUID.randomUUID().toString();
 
         return new Movie.MovieBuilder().
                 setMovieId(id).setTitle(title).setReleaseDate(releaseDate).
-                setGenreId(genreId).setDirectorId(directorId).build();
+                setGenres(genres).setStudio(studio).setPrice(price).setStock(stock).
+                setMainActors(mainActors).build();
     }
 }

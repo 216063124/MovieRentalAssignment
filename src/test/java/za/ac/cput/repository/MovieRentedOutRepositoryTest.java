@@ -5,13 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.MovieRentedOut;
 import za.ac.cput.factory.MoviesRentedOutFactory;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class MovieRentedOutRepositoryTest {
     private static MovieRentedOutRepository repository = MovieRentedOutRepository.getRepository();
-    private static MovieRentedOut movieRentedOut = MoviesRentedOutFactory.createMovieRentedOut("");
+    private static MovieRentedOut movieRentedOut = MoviesRentedOutFactory.build("Ajk52l",1);
 
     @Test
     void a_create(){
@@ -29,7 +30,7 @@ public class MovieRentedOutRepositoryTest {
 
     @Test
     void c_update(){
-        MovieRentedOut updated = new MovieRentedOut.Builder().copy(movieRentedOut).setMovieID("").build();
+        MovieRentedOut updated = new MovieRentedOut.MovieRentedOutBuilder().copy(movieRentedOut).setMovieID("").build();
         assertNotNull(repository.update(updated));
         System.out.println("Update: " + updated);
     }

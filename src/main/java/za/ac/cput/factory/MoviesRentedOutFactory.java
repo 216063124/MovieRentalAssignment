@@ -5,10 +5,11 @@ import java.util.UUID;
 import static javax.swing.text.html.parser.DTDConstants.ID;
 
 
+@Deprecated
 public class MoviesRentedOutFactory {
-    public static MovieRentedOut build(int movieID, int quantity){
+    public static MovieRentedOut build(String movieID, int quantity){
 
-        if (movieID<0 || quantity<0)
+        if (movieID.isEmpty() || quantity<0)
             return null;
 
         String ID= UUID.randomUUID().toString();

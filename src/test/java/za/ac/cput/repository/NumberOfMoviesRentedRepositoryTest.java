@@ -6,12 +6,12 @@ import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.NumberOfMoviesRented;
 import za.ac.cput.factory.NumberOfMoviesRentedFactory;
 import java.util.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class NumberOfMoviesRentedRepositoryTest {
 
         private static NumberOfMoviesRentedRepository repository = NumberOfMoviesRentedRepository.getRepository();
-        private static NumberOfMoviesRented numberOfMoviesRented = NumberOfMoviesRentedFactory.createNumberOfMoviesRented("");
+        private static NumberOfMoviesRented numberOfMoviesRented = NumberOfMoviesRentedFactory.build(1,"",3,2);
 
         @Test
         void a_create(){
@@ -22,14 +22,14 @@ public class NumberOfMoviesRentedRepositoryTest {
 
         @Test
         void b_read(){
-            NumberOfMoviesRented read = repository.read(NumberOfMoviesRented.getUserID());
+            NumberOfMoviesRented read = repository.read(numberOfMoviesRented.getUserID());
             assertNotNull(read);
             System.out.println("Read" + read);
         }
 
         @Test
         void c_update(){
-            NumberOfMoviesRented updated = new NumberOfMoviesRented.Builder().copy(numberOfMoviesRented).setUserID("").build();
+            NumberOfMoviesRented updated = new NumberOfMoviesRented.NumberOfMoviesRentedBuilder().copy(numberOfMoviesRented).setUserID("").build();
             assertNotNull(repository.update(updated));
             System.out.println("Update: " + updated);
         }

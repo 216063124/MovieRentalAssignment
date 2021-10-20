@@ -8,16 +8,41 @@ package za.ac.cput.entity;
     11 June 2021
 */
 
-public class Movie {
 
-    private String title,releaseDate, movieId,genreId,directorId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Movie implements Serializable {
+    @Id private String movieId;
+    private String title,releaseDate, genres, studio, mainActors;
+    private int stock;
+    private double price;
+
+    protected Movie(){}
 
     private Movie(MovieBuilder MovieBuilder){
         this.movieId = MovieBuilder.movieId;
-        this.genreId = MovieBuilder.genreId;
-        this.directorId = MovieBuilder.directorId;
+        this.genres = MovieBuilder.genres;
+        this.studio = MovieBuilder.studio;
         this.title = MovieBuilder.title;
         this.releaseDate = MovieBuilder.releaseDate;
+        this.stock = MovieBuilder.stock;
+        this.mainActors = MovieBuilder.mainActors;
+        this.price = MovieBuilder.price;
+    }
+
+    public String getMainActors() {
+        return mainActors;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public String getTitle() {
@@ -32,29 +57,31 @@ public class Movie {
         return movieId;
     }
 
-    public String getGenreId() {
-        return genreId;
+    public String getGenres() {
+        return genres;
     }
 
-    public String getDirectorId() {
-        return directorId;
+    public String getStudio() {
+        return studio;
     }
 
     public static class MovieBuilder {
-        private String title,releaseDate,movieId,genreId,directorId;
+        public int stock;
+        public double price;
+        private String title,releaseDate,movieId,genres, studio,mainActors;
 
         public MovieBuilder setMovieId(String movieId) {
             this.movieId = movieId;
             return this;
         }
 
-        public MovieBuilder setGenreId(String genreId) {
-            this.genreId = genreId;
+        public MovieBuilder setGenres(String genres) {
+            this.genres = genres;
             return this;
         }
 
-        public MovieBuilder setDirectorId(String directorId) {
-            this.directorId = directorId;
+        public MovieBuilder setStudio(String studio) {
+            this.studio = studio;
             return this;
         }
 
@@ -68,12 +95,30 @@ public class Movie {
             return this;
         }
 
+        public MovieBuilder setStock(int stock) {
+            this.stock = stock;
+            return this;
+        }
+
+        public MovieBuilder setPrice(double price) {
+            this.price = price;
+            return this;
+        }
+
+        public MovieBuilder setMainActors(String mainActors) {
+            this.mainActors = mainActors;
+            return this;
+        }
+
         public MovieBuilder copy(Movie movie){
             this.movieId=movie.movieId;
-            this.directorId=movie.directorId;
-            this.genreId=movie.genreId;
+            this.studio =movie.studio;
+            this.genres=movie.genres;
             this.releaseDate=movie.releaseDate;
             this.title=movie.title;
+            this.price=movie.price;
+            this.mainActors=movie.mainActors;
+            this.stock=movie.stock;
             return this;
         }
 
@@ -85,11 +130,14 @@ public class Movie {
     @Override
     public String toString() {
         return "Movie{" +
-                "movieId=" + movieId +
-                ", genreId=" + genreId +
-                ", directorId=" + directorId +
+                "movieId='" + movieId + '\'' +
                 ", title='" + title + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
+                ", genres='" + genres + '\'' +
+                ", studio='" + studio + '\'' +
+                ", mainActors='" + mainActors + '\'' +
+                ", stock=" + stock +
+                ", price=" + price +
                 '}';
     }
 }

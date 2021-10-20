@@ -1,13 +1,14 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /*
  * Author: Grant Constant
  * Student number: 216063124
  */
-
+@Entity
 public class UserRental {
-    private int userId, movieId;
-    private String rentedBy, rentalDate, returnDate, rentalId;
 
     public UserRental(UserRentalBuilder userRentalBuilder){
         this.rentalId = userRentalBuilder.rentalId;
@@ -17,6 +18,30 @@ public class UserRental {
         this.returnDate = userRentalBuilder.returnDate;
         this.rentedBy = userRentalBuilder.rentedBy;
 
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getMovieId() {
+        return movieId;
+    }
+
+    public String getRentedBy() {
+        return rentedBy;
+    }
+
+    public String getRentalDate() {
+        return rentalDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public String getRentalId() {
+        return rentalId;
     }
 
     public static class UserRentalBuilder{
@@ -57,7 +82,20 @@ public class UserRental {
             return this;
         }
 
-        public UserRental build(){return new UserRental(this);}
+        public UserRentalBuilder copy (UserRental userRental) {
+            this.movieId = userRental.movieId;
+            this.rentalDate = userRental.rentalDate;
+            this.rentalId = userRental.rentalId;
+            this.rentedBy = userRental.rentedBy;
+            this.returnDate = userRental.returnDate;
+            this.userId = userRental.userId;
+
+            return this;
+        }
+
+        public UserRental build(){
+            return new UserRental(this);
+        }
     }
 
     @Override

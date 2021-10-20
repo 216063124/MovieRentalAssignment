@@ -1,5 +1,8 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Author: Emilio Castano
  * Student Number: 219035709
@@ -7,9 +10,13 @@ package za.ac.cput.entity;
  *
  */
 
+@Entity
 public class StudioMovie {
+    @Id
+    private String studioId;
+    private String movieId;
 
-    private String studioId, movieId;
+    private StudioMovie(){}
 
     public String getStudioId() {
         return studioId;

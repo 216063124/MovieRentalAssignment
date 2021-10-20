@@ -7,9 +7,12 @@ package za.ac.cput.factory;
         */
 import za.ac.cput.entity.MovieGenre;
 
+
 public class MovieGenreFactory {
 
     public static MovieGenre build(String genreId, String movieId){
+        if(genreId.isEmpty() ||  movieId.isEmpty())
+            return null;
 
         MovieGenre movieGenre = new MovieGenre.Builder()
                 .setGenreId(genreId)

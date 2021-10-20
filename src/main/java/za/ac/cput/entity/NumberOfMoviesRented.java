@@ -6,17 +6,18 @@ package za.ac.cput.entity;
  *
  */
 
+@Deprecated
 public class NumberOfMoviesRented {
     private String userID;
     private int rentalID;
     private int movieID;
     private int numMovies;
 
-    private NumberOfMoviesRented(NumberOfMoviesRented.NumberOfMoviesRentedBuilder NumberOfMoviesRentedBuilder) {
-        this.userID = NumberOfMoviesRentedBuilder.userID;
-        this.rentalID = NumberOfMoviesRentedBuilder.rentalID;
-        this.movieID = NumberOfMoviesRentedBuilder.movieID;
-        this.numMovies = NumberOfMoviesRentedBuilder.numMovies;
+    private NumberOfMoviesRented(NumberOfMoviesRentedBuilder numberOfMoviesRentedBuilder) {
+        this.userID = numberOfMoviesRentedBuilder.userID;
+        this.rentalID = numberOfMoviesRentedBuilder.rentalID;
+        this.movieID = numberOfMoviesRentedBuilder.movieID;
+        this.numMovies = numberOfMoviesRentedBuilder.numMovies;
 
 
     }
@@ -44,38 +45,38 @@ public class NumberOfMoviesRented {
         private String userID;
 
 
-        public NumberOfMoviesRented.NumberOfMoviesRentedBuilder setUserID(String userID) {
+        public NumberOfMoviesRentedBuilder setUserID(String userID) {
             this.userID = userID;
             return this;
         }
 
-        public NumberOfMoviesRented.NumberOfMoviesRentedBuilder setRentalID(int rentalID) {
+        public NumberOfMoviesRentedBuilder setRentalID(int rentalID) {
             this.rentalID = rentalID;
             return this;
         }
 
-        public NumberOfMoviesRented.NumberOfMoviesRentedBuilder setMovieID(int movieID) {
+        public NumberOfMoviesRentedBuilder setMovieID(int movieID) {
             this.movieID = movieID;
             return this;
         }
 
-        public NumberOfMoviesRented.NumberOfMoviesRentedBuilder setNumMovies(int numMovies) {
+        public NumberOfMoviesRentedBuilder setNumMovies(int numMovies) {
             this.numMovies = numMovies;
+            return this;
+        }
+
+        public NumberOfMoviesRentedBuilder copy(NumberOfMoviesRented numberOfMoviesRented)
+        {
+            this.userID = numberOfMoviesRented.userID;
+            this.rentalID = numberOfMoviesRented.rentalID;
+            this.movieID = numberOfMoviesRented.movieID;
+            this.numMovies = numberOfMoviesRented.numMovies;
+
             return this;
         }
 
         public NumberOfMoviesRented build() {
             return new NumberOfMoviesRented(this);
-        }
-
-        public NumberOfMoviesRentedBuilder copy(NumberOfMoviesRented NumberOfMoviesRented)
-        {
-            this.userID = NumberOfMoviesRented.userID;
-            this.rentalID = NumberOfMoviesRented.rentalID;
-            this.movieID = NumberOfMoviesRented.movieID;
-            this.numMovies = NumberOfMoviesRented.numMovies;
-
-            return this;
         }
 
         @Override

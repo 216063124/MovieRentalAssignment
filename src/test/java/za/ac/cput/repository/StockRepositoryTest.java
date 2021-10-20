@@ -1,4 +1,14 @@
+/*
 package za.ac.cput.repository;
+
+*/
+/*
+    StockRepositoryTest.java
+    @author:219169640 - Casey Michael Keven Crafford
+    Assignment 3 – Domain Driven Design: Repository
+    26 July 2021
+*//*
+
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -12,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class StockRepositoryTest {
     private static StockRepository repository=StockRepository.getRepository();
-    private static Stock stock = StockFactory.build("235235wfswef34",3);
+    private static Stock stock = StockFactory.build(3);
 
     @Test
     void a_create(){
@@ -47,4 +57,4 @@ class StockRepositoryTest {
         assertTrue(success);
         System.out.println("Delete status: "+success);
     }
-}
+}*/

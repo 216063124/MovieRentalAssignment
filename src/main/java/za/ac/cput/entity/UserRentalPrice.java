@@ -5,15 +5,29 @@ package za.ac.cput.entity;
  * Student number: 216063124
  */
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class UserRentalPrice {
-    private int duration;
-    private String rentalId;
-    private double amount;
 
     public UserRentalPrice(UserRentalPriceBuilder userRentalPriceBuilder){
         this.rentalId = userRentalPriceBuilder.rentalId;
         this.duration = userRentalPriceBuilder.duration;
         this.amount = userRentalPriceBuilder.amount;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getRentalId() {
+        return rentalId;
     }
 
     public static class UserRentalPriceBuilder{
@@ -33,6 +47,14 @@ public class UserRentalPrice {
 
         public UserRentalPriceBuilder setAmount(double amount) {
             this.amount = amount;
+            return this;
+        }
+
+        public UserRentalPriceBuilder copy (UserRentalPrice userRentalPrice) {
+            this.rentalId = userRentalPrice.rentalId;
+            this.amount = userRentalPrice.amount;
+            this.duration = userRentalPrice.duration;
+
             return this;
         }
 
